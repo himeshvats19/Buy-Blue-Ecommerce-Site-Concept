@@ -1,0 +1,41 @@
+@mixin transition($property1,
+$property2,
+$duration1,
+$duration2,
+$timingFunction) {
+    -webkit-transition: $property1 $duration1 $duration2 $timingFunction, $property2 $duration1 $duration2 $timingFunction;
+    -moz-transition: $property1 $duration1 $duration2 $timingFunction, $property2 $duration1 $duration2 $timingFunction;
+    -ms-transition: $property1 $duration1 $duration2 $timingFunction, $property2 $duration1 $duration2 $timingFunction;
+    -o-transition: $property1 $duration1 $duration2 $timingFunction, $property2 $duration1 $duration2 $timingFunction;
+    transition: $property1 $duration1 $duration2 $timingFunction, $property2 $duration1 $duration2 $timingFunction;
+}
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$mobile-width: 480px;
+@mixin tablet {
+    @media (min-width: #{
+        $tablet-width
+    }
+    ) and (max-width: #{
+        $desktop-width - 1px
+    }
+    ) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: #{
+        $desktop-width
+    }
+    ) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media (max-width: #{
+        $tablet-width - 1px
+    }
+    ) {
+        @content;
+    }
+}
